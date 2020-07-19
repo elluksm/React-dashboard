@@ -13,8 +13,17 @@ export const RegistrationForm: React.FC = () => {
 
   const handleSubmit = async (event: React.FormEvent) => {
     event.preventDefault();
-    history.push("/chart");
+    if (!email) {
+      setEmailErrorMessage("Please enter your email");
+    } else if (!password) {
+      setPasswordErrorMessage("Please enter your password");
+    } else {
+      setEmailErrorMessage("");
+      setPasswordErrorMessage("");
+      history.push("/chart");
+    }
   };
+
   return (
     <div className="registration-form">
       <h2>Lorem Ipsum</h2>

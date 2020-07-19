@@ -15,6 +15,7 @@ export const Input: React.FC<InputProps> = ({
   label,
   placeholder,
   type,
+  errorMessage,
   onValueChange,
 }) => {
   return (
@@ -27,6 +28,7 @@ export const Input: React.FC<InputProps> = ({
         placeholder={placeholder}
         onChange={(e) => onValueChange(e.target.value)}
       />
+      <p className="error-message">{errorMessage}</p>
     </div>
   );
 };
