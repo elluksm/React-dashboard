@@ -1,10 +1,13 @@
 import React, { useState } from "react";
 import { useHistory } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { register } from "../../store/userInfo";
 import { Input } from "../FormElements/Input/Input";
 import { Button } from "../FormElements/Button/Button";
 import "./RegistrationForm.sass";
 
 export const RegistrationForm: React.FC = () => {
+  const dispatch = useDispatch();
   const history = useHistory();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -13,13 +16,16 @@ export const RegistrationForm: React.FC = () => {
 
   const handleSubmit = async (event: React.FormEvent) => {
     event.preventDefault();
+    setEmailErrorMessage("");
+    setPasswordErrorMessage("");
     if (!email) {
       setEmailErrorMessage("Please enter your email");
-    } else if (!password) {
+    }
+    if (!password) {
       setPasswordErrorMessage("Please enter your password");
-    } else {
-      setEmailErrorMessage("");
-      setPasswordErrorMessage("");
+    }
+    if (email && password) {
+      dispatch(register(email, password));
       history.push("/chart");
     }
   };
