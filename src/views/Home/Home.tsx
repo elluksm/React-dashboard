@@ -1,21 +1,16 @@
-import React, { useState, useEffect } from "react";
-import { useHistory } from "react-router-dom";
-import { RegistrationForm } from "../../components/Form/RegistrationForm/RegistrationForm";
+import React from "react";
+import { RegistrationForm } from "../../components/RegistrationForm/RegistrationForm";
 import "./Home.sass";
 
 export const Home: React.FC = () => {
-  const history = useHistory();
-
-  const handleSubmit = async (event: React.FormEvent) => {
-    event.preventDefault();
-    history.push("/chart");
-  };
-
   return (
     <div className="home-view">
-      <h1>Home</h1>
-      <RegistrationForm />
-      <button onClick={handleSubmit}>Lorem Ipsum</button>
+      <div className="home-left-column" />
+      <div className="home-right-column">
+        <div className="registration-form-container">
+          <RegistrationForm />
+        </div>
+      </div>
     </div>
   );
 };

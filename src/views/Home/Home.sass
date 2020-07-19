@@ -1,0 +1,25 @@
+@import ../../sass/variables
+
+.home-view
+    display: flex
+    flex-wrap: wrap
+    height: 100%
+    
+    .home-left-column
+        width: 60%
+        background-color: $dark-blue
+
+    .home-right-column
+        width: 40%
+        background-color: $light-blue
+
+        .registration-form-container
+            margin-top: 15%
+            margin-left: 25%
+            margin-right: 15%
+
+@media (max-width: $medium_screen)
+    .home-view 
+        .home-left-column, .home-right-column
+            width: 100%
+    
